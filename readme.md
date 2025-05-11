@@ -33,6 +33,7 @@ Create a file named `osc_forward_config.json` in the same directory as the `.exe
   "DEBUG": true
 }
 
+```
 ## Requires
 Requires Python 3.10+
 
