@@ -1,0 +1,43 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyd
+*.pyo
+*.pdb
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# =========================
+# PyInstaller
+# =========================
+build/
+dist/
+*.spec
+
+# =========================
+# Logs / Runtime files
+# =========================
+*.log
+log/
+logs/
+
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+
+# =========================
+# Local config (if any)
+# =========================
+# 実行時に上書きされる可能性がある場合は無視
+# osc_forward_config.local.json
