@@ -41,8 +41,8 @@ Create a file named `osc_forward_config.json` in the same directory as the `.exe
 
 ```json
 {
-  "receive_address": "0.0.0.0",
-  "receive_port": 9000,
+  "receive_address": "127.0.0.1",
+  "receive_port": 9001,
   "forward_targets": [9002, 9003,9004, 9005],
   "DEBUG": false
 }
@@ -53,4 +53,5 @@ Requires Python 3.10+
 
 ## License
 MIT License
+
 
