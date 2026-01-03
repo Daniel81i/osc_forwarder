@@ -53,5 +53,3 @@ Requires Python 3.10+
 
 ## License
 MIT License
-
-
