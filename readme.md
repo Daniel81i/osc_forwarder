@@ -1,5 +1,12 @@
 # OSCForwarder
 
+<p align="center">
+  <a href="https://raw.githubusercontent.com/colasama/reboslime/master/LICENSE">
+    <img src="https://img.shields.io/github/license/colasama/reboslime" alt="license">
+  </a>
+  <img src="https://img.shields.io/badge/python-3.12.x-blue?logo=python&logoColor=edb641" alt="python">
+</p>
+
 A lightweight background tool that listens for OSC messages on a specified port and forwards them to multiple local ports.  
 It runs in the Windows task tray and requires no console interaction.
 
@@ -39,3 +46,4 @@ Requires Python 3.10+
 
 ## License
 MIT License
+
