@@ -10,7 +10,7 @@
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="license">
   </a>
-  <img src="https://img.shields.io/badge/python-3.10.x-blue?logo=python&logoColor=edb641" alt="python">
+  <img src="https://img.shields.io/badge/python-3.11.x-blue?logo=python&logoColor=edb641" alt="python">
 </p>
 </div>
 
@@ -49,8 +49,9 @@ Create a file named `osc_forward_config.json` in the same directory as the `.exe
 
 ```
 ## Requires
-Requires Python 3.10+
+Requires Python 3.11+
 
 ## License
 MIT License
+
 
