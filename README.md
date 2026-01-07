@@ -26,8 +26,8 @@ Windowsのタスクトレイに常駐し、コンソール操作不要で動作�
 
 - 🛰️ Forward OSC messages to up to 5 local ports  
   最大5つのローカルポートへのOSC転送が可能  
-- 🛠 Configurable via `osc_forward_config.json`  
-  `osc_forward_config.json` による設定変更  
+- 🛠 Configurable via `config.json`  
+  `config.json` による設定変更  
 - 📜 Hover-free tray interface with Info menu  
   ホバー操作不要の情報表示メニュー付きタスクトレイ  
 
@@ -35,7 +35,7 @@ Windowsのタスクトレイに常駐し、コンソール操作不要で動作�
 
 ## Configuration / 設定
 
-Create a file named `osc_forward_config.json` in the same directory as the `.exe` file:
+Create a file named `config.json` in the same directory as the `.exe` file:
 
 `osc_forward_config.json` を `.exe` ファイルと同じ場所に作成してください：
 
@@ -43,7 +43,7 @@ Create a file named `osc_forward_config.json` in the same directory as the `.exe
 {
   "receive_address": "127.0.0.1",
   "receive_port": 9001,
-  "forward_targets": [9002, 9003,9004, 9005],
+  "forward_targets": [9002, 9003, 9004, 9005, 9006],
   "DEBUG": false
 }
 
@@ -53,5 +53,6 @@ Requires Python 3.11+
 
 ## License
 MIT License
+
 
 
