@@ -84,7 +84,7 @@ jobs:
             main.py
 
           # 配布物をdistにまとめる
-          Copy-Item OSCForwarder.json dist\OSCForwarder.json -Force
+          Copy-Item config.json dist\config.json -Force
           if (Test-Path readme.md) { Copy-Item readme.md dist\readme.md -Force }
 
       - name: Create ZIP
@@ -93,7 +93,7 @@ jobs:
           $APP_NAME = "OSCForwarder"
           $ZIP_NAME = "$APP_NAME.zip"
           if (Test-Path dist\$ZIP_NAME) { Remove-Item dist\$ZIP_NAME -Force }
-          Compress-Archive -Path dist\$APP_NAME.exe, dist\OSCForwarder.json, dist\readme.md -DestinationPath dist\$ZIP_NAME
+          Compress-Archive -Path dist\$APP_NAME.exe, dist\config.json, dist\readme.md -DestinationPath dist\$ZIP_NAME
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
