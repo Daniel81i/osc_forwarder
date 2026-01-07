@@ -1,9 +1,9 @@
 <div align="center">
 
-# osc_forwarder
+# OSCForwarder
 
 <p align="center">
-  <img src="./assets/osc_forwarder.png" style="border-radius: 100px;" width="200" height="200" alt="osc_forwarder">
+  <img src="./assets/OSCForwarder.png" style="border-radius: 100px;" width="200" height="200" alt="OSCForwarder">
 </p>
 
 <p align="center">
@@ -53,3 +53,4 @@ Requires Python 3.10+
 
 ## License
 MIT License
+
