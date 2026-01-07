@@ -15,6 +15,7 @@ config = {}
 log_file = None
 icon = None
 icon_title = "OSC Forwarder"
+state = {}
 
 def load_config():
     global config, log_file, icon_title
@@ -63,9 +64,12 @@ def create_icon():
         return image
 
 def info_handler(icon, item):
-    recv_port = config.get("receive_port", 9001)
-    targets = config.get("forward_targets", [])
-    info_text = f"Receive: {recv_port}\nForward: {', '.join(map(str, targets))}"
+    recv_port = state["recv_port"]
+    valid_ports = state["valid_ports"]
+    info_text = (
+        f"Receive: {recv_port}\n"
+        f"Forward: {', '.join(map(str, valid_ports))}"
+    )
     icon.notify(info_text, "Current Settings")
 
 def on_quit(icon, item):
@@ -75,10 +79,34 @@ def on_quit(icon, item):
 
 if __name__ == "__main__":
     load_config()
-    icon = Icon("osc_forwarder", icon=create_icon(), title=icon_title,
-                menu=Menu(
-                    item("Info", info_handler),
-                    item("Exit", on_quit)
-                ))
-    threading.Thread(target=lambda: start_osc_forwarder(config, log), daemon=True).start()
+
+    # まず forwarder を「起動せずに」ポート検証だけ行う
+    osc_running, valid_ports = start_osc_forwarder(config, log)
+
+    if not osc_running:
+        log("[ERROR] OSC forwarder failed to start. Exiting.")
+        sys.exit(1)
+
+    # info_handler で使えるように保持
+    state = {
+        "valid_ports": valid_ports,
+        "recv_port": config.get("receive_port", 9001),
+    }
+
+    # forwarder をバックグラウンドで起動
+    threading.Thread(
+        target=lambda: start_osc_forwarder(config, log),
+        daemon=True
+    ).start()
+
+    # タスクトレイアイコン起動
+    icon = Icon(
+        "osc_forwarder",
+        icon=create_icon(),
+        title=icon_title,
+        menu=Menu(
+            item("Info", info_handler),
+            item("Exit", on_quit)
+        )
+    )
     icon.run()
