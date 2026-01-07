@@ -93,7 +93,7 @@ jobs:
           $APP_NAME = "OSCForwarder"
           $ZIP_NAME = "$APP_NAME.zip"
           if (Test-Path dist\$ZIP_NAME) { Remove-Item dist\$ZIP_NAME -Force }
-          Compress-Archive -Path dist\$APP_NAME.exe, dist\config.json, dist\readme.md -DestinationPath dist\$ZIP_NAME
+          Compress-Archive -Path dist\$APP_NAME.exe, dist\config.json -DestinationPath dist\$ZIP_NAME
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
