@@ -19,7 +19,7 @@ icon_title = "OSC Forwarder"
 def load_config():
     global config, log_file, icon_title
     base_path = os.path.dirname(os.path.abspath(sys.argv[0]))
-    config_path = os.path.join(base_path, "osc_forward_config.json")
+    config_path = os.path.join(base_path, "OSCForwarder.json")
     if not os.path.exists(config_path):
         print(f"[ERROR] Config not found: {config_path}")
         sys.exit(1)
