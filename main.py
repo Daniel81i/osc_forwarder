@@ -81,7 +81,7 @@ if __name__ == "__main__":
     load_config()
 
     # まず forwarder を「起動せずに」ポート検証だけ行う
-    osc_running, valid_ports = start_osc_forwarder(config, log)
+    osc_running, valid_ports = validate_ports(config, log)
 
     if not osc_running:
         log("[ERROR] OSC forwarder failed to start. Exiting.")
