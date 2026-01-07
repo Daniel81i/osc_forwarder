@@ -95,7 +95,7 @@ if __name__ == "__main__":
 
     # forwarder をバックグラウンドで起動
     threading.Thread(
-        target=lambda: start_osc_forwarder(config, log),
+        target=lambda: run_forwarder(config, log),
         daemon=True
     ).start()
 
