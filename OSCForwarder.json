@@ -1,6 +1,6 @@
 {
   "receive_address": "127.0.0.1",
   "receive_port": 9001,
-  "forward_targets": [9002, 9003, 9004, 9005],
+  "forward_targets": [9002, 9003, 9004, 9005, 9006, 9007],
   "DEBUG": false
 }
