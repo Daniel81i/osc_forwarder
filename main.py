@@ -32,9 +32,10 @@ def load_config():
     exe_name = os.path.splitext(os.path.basename(sys.argv[0]))[0]
     icon_title = f"{exe_name} - IN:{recv_port} → OUT:{','.join(map(str, targets))}"
 
-    if config.get("DEBUG"):
-        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-        log_file = os.path.join(base_path, f"{exe_name}_{timestamp}.log")
+    log_dir = os.path.join(base_path, "log")
+    os.makedirs(log_dir, exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    log_file = os.path.join(log_dir, f"{exe_name}_{timestamp}.log")
 
 def log(message):
     if config.get("DEBUG"):
