@@ -9,7 +9,7 @@ from pystray import Icon, MenuItem as item, Menu
 from PIL import Image, ImageDraw
 from io import BytesIO
 import base64
-from osc_forwarder import start_osc_forwarder, stop_osc_forwarder, cleanup_osc_server
+from osc_forwarder import validate_ports, run_forwarder, stop_osc_forwarder, cleanup_osc_server
 
 config = {}
 log_file = None
@@ -20,7 +20,7 @@ state = {}
 def load_config():
     global config, log_file, icon_title
     base_path = os.path.dirname(os.path.abspath(sys.argv[0]))
-    config_path = os.path.join(base_path, "OSCForwarder.json")
+    config_path = os.path.join(base_path, "config.json")
     if not os.path.exists(config_path):
         print(f"[ERROR] Config not found: {config_path}")
         sys.exit(1)
