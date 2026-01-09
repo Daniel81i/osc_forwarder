@@ -37,7 +37,7 @@ Windowsのタスクトレイに常駐し、コンソール操作不要で動作�
 
 Create a file named `config.json` in the same directory as the `.exe` file:
 
-`osc_forward_config.json` を `.exe` ファイルと同じ場所に作成してください：
+`config.json` を `.exe` ファイルと同じ場所に作成してください：
 
 ```json
 {
@@ -53,6 +53,7 @@ Requires Python 3.11+
 
 ## License
 MIT License
+
 
 
 
