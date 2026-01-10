@@ -60,7 +60,7 @@ def run_forwarder(config, log_fn):
     recv_ip = config.get("receive_address", "0.0.0.0")
     recv_port = config.get("receive_port", 9001)
 
-    # validate_ports() で確定した _valid_ports を使う
+    # validate_ports() で確定した _valid_ports を使う想定
     _clients = []
     for port in _valid_ports:
         try:
@@ -79,6 +79,8 @@ def run_forwarder(config, log_fn):
     disp = dispatcher.Dispatcher()
 
     def handler(address, *args):
+        # ★ DEBUG=True の時は全受信データをログに出す（log_fn 側で DEBUG 判定）
+        log_fn(f"[RECV] addr={address}, args={args}")
         for client in _clients:
             try:
                 client.send_message(address, args)
@@ -93,7 +95,7 @@ def run_forwarder(config, log_fn):
         log_fn(f"[ERROR] Could not bind to {recv_ip}:{recv_port}: {e}")
         return
 
-    log_fn(f"Listening on {recv_ip}:{recv_port} → valid: {_valid_ports}")
+    # ★ 起動時の「Listening on ...」ログは削除（不要との要望）
 
     try:
         _server.serve_forever()
