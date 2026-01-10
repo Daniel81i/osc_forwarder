@@ -95,7 +95,8 @@ def run_forwarder(config, log_fn):
         log_fn(f"[ERROR] Could not bind to {recv_ip}:{recv_port}: {e}")
         return
 
-    # ★ 起動時の「Listening on ...」ログは削除（不要との要望）
+if DEBUG:
+    log_fn(f"Listening on {recv_ip}:{recv_port} → valid: {_valid_ports}")
 
     try:
         _server.serve_forever()
